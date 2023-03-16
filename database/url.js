@@ -1,15 +1,12 @@
 const shortUrls = {};
 const urls = {};
+let i = 1
 
 exports.add = function ({original_url}) {
-    console.log({original_url: urls[original_url]});
+    console.log({givenURL: urls[original_url]});
 
     if (urls[original_url] === undefined) {
-        let short_url = Math.floor(Math.random() * 100000).toString();
-
-        while (shortUrls[short_url] !== undefined) {
-            short_url = Math.floor(Math.random() * 100000).toString();
-        }
+        let short_url = i++;
 
         shortUrls[short_url] = original_url;
         urls[original_url] = short_url;
